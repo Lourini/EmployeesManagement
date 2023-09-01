@@ -1,0 +1,9 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<ViewSettingsDialog id="sortDialog" confirm="handleSortDialogConfirm" cancel="onCloseSorter" >
+		<sortItems>
+			<ViewSettingsItem text="id" key="id" selected="true"/>
+			<ViewSettingsItem text="{i18n>colfirstName}" key="firstname" />
+			<ViewSettingsItem text="{i18n>collastName}" key="lastname"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

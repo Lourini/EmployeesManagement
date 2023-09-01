@@ -1,0 +1,103 @@
+<mvc:View controllerName="lourini.employees.controller.Main" height="100%" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:f="sap.f" xmlns:fb="sap.ui.comp.filterbar" xmlns:vm="sap.ui.comp.variants">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="dynamicPageId" title="{i18n>titleMain}">
+					<!--Header -->
+					<content>
+						<fb:FilterBar id="filterbar" useToolbar="false" showGoOnFB="false">
+							<fb:filterItems>
+								<fb:FilterItem name="A" label="{i18n>colactive}">
+									<fb:control>
+										<MultiComboBox id="slActive" selectionChange="onSelectChange">
+											<core:Item key="true" text="{i18n>StatusB}"/>
+											<core:Item key="false" text="{i18n>StatusA}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="B" label="{i18n>colgender}">
+									<fb:control>
+										<MultiComboBox id="slGender" selectionChange="onSelectChange">
+											<core:Item key="Male" text="{i18n>male}"/>
+											<core:Item key="Female" text="{i18n>female}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterItem>
+								<fb:FilterItem name="C" label="{i18n>colcountry}">
+									<fb:control>
+										<MultiComboBox id="slCountry" selectionChange="onSelectChange" items="{path:'country>/country'}">
+											<core:Item key="{country>name}" text="{country>name}"/>
+										</MultiComboBox>
+									</fb:control>
+								</fb:FilterItem>
+							</fb:filterItems>
+						</fb:FilterBar>
+					</content>
+					<!-- Content -->
+					<content>
+						<Table id="idEmployeesTable" inset="false" items="{Employees>/Employees}" selectionChange="onSelectionChange" growingThreshold="250"
+							mode="MultiSelect" growing="true">
+							<headerToolbar>
+								<OverflowToolbar>
+									<ToolbarSpacer/>
+									<SearchField ariaLabelledBy="text1" liveChange="onSearch">
+										<layoutData><OverflowToolbarLayoutData maxWidth="300px" shrinkable="true" priority="NeverOverflow"/></layoutData>
+									</SearchField>
+									<Button icon="sap-icon://donut-chart" press="onDetails"/>
+									<Button icon="sap-icon://add-employee" type="Emphasized" press="onOpenCreate"/>
+									<Button icon="sap-icon://delete" text="Delete All" type="Negative" press="onDeleteAllConfirmation"/>
+									<Button tooltip="Sort" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column width="80px"></Column>
+								<Column width="80px"></Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>colfirstName}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>collastName}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>colphone}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>colgender}"/>
+								</Column>
+								<Column hAlign="Center" >
+									<Text text="{i18n>colcountry}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>colactive}"/>
+								</Column>
+								<Column hAlign="Center">
+									<Text text="{i18n>colAction}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem vAlign="Middle">
+									<cells>
+										<Text text="{Employees>id}"/>
+										<Image src="{Employees>avatar}"/>
+										<Text  text="{Employees>firstname}"/>
+										<Text text="{Employees>lastname}"/>
+										<Text text="{Employees>phone}"/>
+										<Text text="{Employees>gender}"/>
+										<Text text="{Employees>country}"/>
+										<Text text="{path:'Employees>active', formatter: '.formatter.statusText' }"/>
+										<HBox>
+											<Button class="sapUiTinyMarginEnd" press="onOpenDialog" type="Emphasized" icon="sap-icon://edit"/>
+											<Button class="sapUiTinyMarginEnd" press="onDetail" type="Neutral" icon="sap-icon://detail-view"/>
+											<Button press="onDeleteConfirmation" type="Negative" icon="sap-icon://delete"/>
+										</HBox>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

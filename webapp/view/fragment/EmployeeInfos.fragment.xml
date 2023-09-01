@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Dialog id="infoDialog" title="Employee Infos" class="sapUiContentPadding">
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>colfirstName} :"/>
+			<Text text="{Emp>/firstname}"/>
+		</HBox>
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>collastName} :"/>
+			<Text text="{Emp>/lastname}"/>
+		</HBox>
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>colgender} :"/>
+			<Text text="{Emp>/gender}"/>
+		</HBox>
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>colemail} :"/>
+			<Text text="{Emp>/email}"/>
+		</HBox>
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>colphone} :"/>
+			<Text text="{Emp>/phone}"/>
+		</HBox>
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>colposition} :"/>
+			<Text text="{Emp>/position}"/>
+		</HBox>
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>colcountry} :"/>
+			<Text text="{Emp>/country}"/>
+		</HBox>
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>colcity} :"/>
+			<Text text="{Emp>/city}"/>
+		</HBox>
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>colzipcode} :"/>
+			<Text text="{Emp>/zipcode}"/>
+		</HBox>
+		<HBox>
+			<Label class="sapUiTinyMarginEnd" text="{i18n>colactive} :"/>
+			<Text text="{path:'Emp>/active', formatter: '.formatter.statusText' }"/>
+		</HBox>
+		<endButton>
+			<Button press="onCloseEmpInfo" text="close"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

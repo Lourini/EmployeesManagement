@@ -1,0 +1,92 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Dialog id="updateDialog" title="Update Employee" class="sapUiContentPadding">
+		<VBox class="sapUiSmallMargin">
+			<f:Form id="FormToolbarUpdate" editable="true">
+				<f:layout>
+					<f:ResponsiveGridLayout/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer ariaLabelledBy="Title1">
+						<f:formElements>
+							<f:FormElement label="{i18n>colfirstName}">
+								<f:fields>
+									<Input id="idFirstname" liveChange="onInputChange" required="true"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>collastName}">
+								<f:fields>
+									<Input id="idLastname" liveChange="onInputChange" required="true"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>colgender}">
+								<f:fields>
+									<Select width="100%" forceSelection="false" id="idgender">
+										<core:Item text="{i18n>male}" key="Male"/>
+										<core:Item text="{i18n>female}" key="Female"/>
+									</Select>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>colphone}">
+								<f:fields>
+									<Input id="idphone" liveChange="onInputChange" required="true"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>colemail}">
+								<f:fields>
+									<Input id="idemail" liveChange="onInputChange" required="true"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>colcountry}">
+								<f:fields>
+									<Select id="idcountry" forceSelection="false" items="{country>/country}">
+										<core:Item key="{country>name}" text="{country>name}"/>
+									</Select>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>colzipcode}/{i18n>colcity}">
+								<f:fields>
+									<Input id="idzipcode">
+										<layoutData>
+											<l:GridData span="XL2 L1 M3 S4"/>
+										</layoutData>
+									</Input>
+									<Input id="idcity"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer ariaLabelledBy="Title2">
+						<f:formElements>
+							<f:FormElement label="{i18n>colavatar}">
+								<f:fields>
+									<Input type="Url" id="idavatar"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>colposition}">
+								<f:fields>
+									<Input id="idposition"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="{i18n>colactive}">
+								<f:fields>
+									<Switch id="idactive" type="AcceptReject" state="true">
+										<layoutData>
+											<FlexItemData growFactor="1"/>
+										</layoutData>
+									</Switch>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>
+		<beginButton>
+			<Button type="Emphasized" press="onEditEmployee" text="save"/>
+		</beginButton>
+		<endButton>
+			<Button press="onCloseDialog" text="close"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns="sap.m">
+	<Dialog id="idDeleteAll" title="{i18n>deleteconfirmation}"  class="sapUiContentPadding">
+		<Text text="Are you sure to delete {EmpLength>/nombre} Employees" />
+		<beginButton>
+			<Button type="Emphasized" text="{i18n>confirm}" press="onDeleteAll"/>
+		</beginButton>
+		<endButton>
+			<Button  text="{i18n>close}" press="onCloseDeleteAll" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
